@@ -115,10 +115,8 @@
     --sidebar-border: hsl(0 0% 91%);
     --sidebar-ring: hsl(217.2 91.2% 59.8%);
     --sidebar: hsl(0 0% 98%);
-}
 
-/* ===== Sisig Store Custom Colors ===== */
-:root {
+    /* ===== Sisig Store Custom Colors ===== */
     --sisig-primary: #d35400;
     --sisig-secondary: #c0392b;
     --sisig-accent: #e67e22;
@@ -180,6 +178,8 @@ nav {
     list-style: none;
     display: flex;
     gap: 2rem;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-links a {
@@ -187,11 +187,74 @@ nav {
     color: white;
     font-weight: 600;
     transition: color 0.3s, text-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0;
 }
 
 .nav-links a:hover {
     color: #ffe8d6;
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.nav-links .btn-login {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: linear-gradient(90deg, var(--sisig-primary) 0%, var(--sisig-accent) 100%);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.9rem;
+    border-radius: 9999px;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 22px rgba(211, 84, 0, 0.20), 0 0 0 0 rgba(227, 126, 34, 0);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease, opacity 180ms ease;
+    z-index: 5;
+    height: auto;
+}
+
+.nav-links .btn-login:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 14px 40px rgba(211, 84, 0, 0.30), 0 0 40px rgba(227, 126, 34, 0.08);
+    filter: saturate(1.05);
+    color: #fff;
+}
+
+.nav-links .btn-login:active {
+    transform: translateY(0) scale(0.995);
+    box-shadow: 0 6px 16px rgba(211, 84, 0, 0.18);
+}
+
+.nav-links .btn-login:focus {
+    outline: none;
+    box-shadow: 0 0 0 6px rgba(227, 126, 34, 0.12), 0 8px 22px rgba(211, 84, 0, 0.18);
+    color: #fff;
+}
+
+.nav-links .btn-login::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle at 30% 30%, #fff5f0, var(--sisig-accent));
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(192, 57, 43, 0.55), 0 0 8px rgba(227, 126, 34, 0.12);
+    animation: btn-login-pulse 2.2s infinite cubic-bezier(.4,0,.2,1);
+    pointer-events: none;
+}
+
+@keyframes btn-login-pulse {
+    0%   { transform: scale(1);   opacity: 1; }
+    50%  { transform: scale(1.4); opacity: 0.55; }
+    100% { transform: scale(1);   opacity: 1; }
 }
 
 /* ===== Page Header ===== */
